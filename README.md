@@ -24,15 +24,21 @@ and [time](https://en.wikipedia.org/wiki/Time_complexity) complexity.
 Many computing problems can be represented as a 
 [Directed Acyclical Graph (or DAG)](https://en.wikipedia.org/wiki/Directed_acyclic_graph).
 
-Recursive computing problems can be represented as a [Cyclical Graph](https://en.wikipedia.org/wiki/Cycle_graph) 
-......
+Other computing problems can be represented as a [Cyclical Graph](https://en.wikipedia.org/wiki/Cycle_graph) 
+these can be by 
 
 With a bit of effort one can show the equivalence between these two problems are a finite
 deterministic [Turing Machine](https://en.wikipedia.org/wiki/Turing_machine). Each stopping
 point in the Turing Machine is a node in the Graph. Each movement of the Turing Machine tape head 
 is a line between two nodes in a graph. Because the Turing Machine is finite, there are at most
-M stopping locations for the tape machine head. So there are at most M transitions which means
+M stopping locations for the tape machine head. If we constrain the Turing Machine so that each
+node is visited only once, then there are at most M transitions which means
 the Turing machine can be represented as a Graph with M nodes.
+
+This is reasonable because most computing problems occur in finite time with finite resources.
+The state of the entire computer storage at any given point in time can be considered a node. 
+Updating a memory location can be seen as visiting another node rather than the first node. 
+Each operation can be seen as a transition from one node to the another.
 
 A DAG can be converted to an [M-Ary Tree](https://en.wikipedia.org/wiki/M-ary_tree) by:
 
@@ -44,15 +50,19 @@ by introducing intermediate nodes:
 
    - Whenever a node has more than 2 children we select two of the children and add an intermediate
      node. For example, if node A has children B, C and D. Then we introduce a node E which has
-     children B and C. A now has children E and D. We repeat this step until there are no more than to 
-
-[Various Tree rebalancing algorithms](https://en.wikipedia.org/wiki/Tree_rotation#Rotations_for_rebalancing) 
+     children B and C. A now has children E and D. 
+     We repeat this step until there are no more than to two leave per node. 
+   
+Various [Tree rebalancing algorithms](https://en.wikipedia.org/wiki/Tree_rotation#Rotations_for_rebalancing) 
 show a logical mapping from any binary tree of X leaves to any other binary tree of X leaves.
 
 ### Logical mapping of And/Or/Xor/etc. Gate inputs/outputs to Merkle Tree Hash values.
 
 The goal is to demonstrate that using hashes can be seen as a logical for a computation step
-or series of computation steps. 
+or set of computation steps. 
 
-  - Each 
+  - A set of inputs and corresponding outputs for a circuit can be seen as a unique state or node.
+  - The intermediary inputs and outputs from internal gates can be seen as supplemental states
+    which may or may not be represented. We can create a one-to-one mapping from the
+    inputs to the outputs for a circuit regardless of the intermediary nodes.
 
