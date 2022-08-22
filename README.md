@@ -17,11 +17,8 @@ On approach to solving this problem is by means of a
 
 ### Why a Binary Tree
 
-The goal is not provide a general solution to all problems but by showing that a solution to one 
-problem we can show that a whole class of problems can be solved in the same 
-[order of magnitude](https://en.wikipedia.org/wiki/Order_of_magnitude) in 
-both [space](https://en.wikipedia.org/wiki/Space_complexity) 
-and [time](https://en.wikipedia.org/wiki/Time_complexity) complexity.
+The goal is not provide a general solution to all problems but by showing a solution to one 
+problem we can show that a whole class of problems can be solved. 
 
 Many computing problems can be represented as a 
 [Directed Acyclical Graph (or DAG)](https://en.wikipedia.org/wiki/Directed_acyclic_graph).
@@ -29,7 +26,7 @@ Many computing problems can be represented as a
 Other computing problems can be represented as a [Cyclical Graph](https://en.wikipedia.org/wiki/Cycle_graph) 
 these can be by 
 
-With a bit of effort one can show the equivalence between these two problems are a finite
+With a bit of effort one can show the equivalence between these two problems and a finite
 deterministic [Turing Machine](https://en.wikipedia.org/wiki/Turing_machine). Each stopping
 point in the Turing Machine is a node in the Graph. Each movement of the Turing Machine tape head 
 is a line between two nodes in a graph. Because the Turing Machine is finite, there are at most
@@ -37,24 +34,24 @@ M stopping locations for the tape machine head. If we constrain the Turing Machi
 node is visited only once, then there are at most M transitions which means
 the Turing machine can be represented as a Graph with M nodes.
 
-This is reasonable because most computing problems occur in finite time with finite resources.
-The state of the entire computer storage at any given point in time can be considered a node. 
-Updating a memory location can be seen as visiting another node rather than the first node. 
+This is reasonable because computing problems execute in finite time with finite resources.
+The state of the entire computer storage at any given point in time can be considered a stopping point
+in a Turing machine or a node in a Graph. Updating a memory location can be seen as visiting another node rather than the first node. 
 Each operation can be seen as a transition from one node to the another.
 
 A DAG can be converted to an [M-Ary Tree](https://en.wikipedia.org/wiki/M-ary_tree) by:
 
-   - Adding a parent node above all root nodes which are now it's children.
+   - Adding a parent node above all root nodes which then become children of this newly created parent/root node.
    - Whenever a subtree has more than one parent we can duplicate the subtree at both parents.
 
 We can convert an M-Ary Tree to a [Binary Tree](https://en.wikipedia.org/wiki/Binary_tree) 
 by introducing intermediate nodes:
 
-   - Whenever a node has more than 2 children we select two of the children and add an intermediate
-     node. For example, if node A has children B, C and D. Then we introduce a node E which has
+   - Whenever a node has more than 2 children, we select two of the children and add an intermediate
+     node as a new parent of these two nodes. For example, if node A has children B, C and D. Then we introduce a node E which has
      children B and C. A now has children E and D. 
-     We repeat this step until there are no more than to two leave per node. 
-   
+     We repeat this step until there are no more than two children per node.
+
 Various [Tree rebalancing algorithms](https://en.wikipedia.org/wiki/Tree_rotation#Rotations_for_rebalancing) 
 show a logical mapping from any binary tree of X leaves to any other binary tree of X leaves.
 
@@ -67,4 +64,11 @@ or set of computation steps.
   - The intermediary inputs and outputs from internal gates can be seen as supplemental states
     which may or may not be represented. We can create a one-to-one mapping from the
     inputs to the outputs for a circuit regardless of the intermediary nodes.
+
+Any set of inputs and output can be reasonably considered to be represented by a unique 256 hash 
+such as a SHA-256 hash value. This value can then be encrypted by as Symmetric key known only to the
+encryptor. In practice a weaker encoding might be considered for hashing and encryption since
+cracking the encryption would cost more than performing the computation.
+
+
 
