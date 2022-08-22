@@ -70,5 +70,10 @@ such as a SHA-256 hash value. This value can then be encrypted by as Symmetric k
 encryptor. In practice a weaker encoding might be considered for hashing and encryption since
 cracking the encryption would cost more than performing the computation.
 
+### Digital Identity
 
+A follow in requirement is to verify that a specific Actor performed the computations correctly and
+should receive a reward. A couple of ideas in this area are:
 
+- [Decentralized Digital Certificates](https://oblivc.org/docs/dca.pdf) and
+- [Self-Sovereign Identity](https://en.wikipedia.org/wiki/Self-sovereign_identity).
