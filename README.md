@@ -7,11 +7,13 @@ In a decentralized network, we need to ensure all parties:
   1. do not shirk the responsibility to perform the calculations asked of them and
   2. perform the calculations accurately.
 
+There are [Economic ways to Influence](Economic-Influences.md) this outcome.
+
 ### Garbled Circuits
 
 On approach to solving this problem is by means of a 
-[Garbled Circuit](https://en.wikipedia.org/wiki/Garbled_circuit). Vitalik Buterin provides [nice introduction](https://vitalik.ca/general/2020/03/21/garbled.html) 
-to Garbled Circuits.
+[Garbled Circuit](https://en.wikipedia.org/wiki/Garbled_circuit). Vitalik Buterin provides 
+[nice introduction](https://vitalik.ca/general/2020/03/21/garbled.html) to Garbled Circuits.
 
 ### Why a Binary Tree
 
