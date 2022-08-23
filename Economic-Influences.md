@@ -1,5 +1,5 @@
 # Distributed Computing Environment with Rewards
-## MicroEconomic Influences
+## Economic Influences
 
 Imagine a rewards-based distributed computing environment where actors
 are semi-trustworthy. They will preform the computation correctly if incentivized,

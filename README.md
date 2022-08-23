@@ -18,7 +18,10 @@ On approach to solving this problem is by means of a
 ### Why a Binary Tree
 
 The goal is not provide a general solution to all problems but by showing a solution to one 
-problem we can show that a whole class of problems can be solved. 
+problem we can show that a whole class of problems can be solved. The complexity of
+the problem in both [time](https://en.wikipedia.org/wiki/Time_complexity) and 
+[space](https://en.wikipedia.org/wiki/Space_complexity) will not remain the same, 
+but the solvability of a solution will remain the same.
 
 Many computing problems can be represented as a 
 [Directed Acyclical Graph (or DAG)](https://en.wikipedia.org/wiki/Directed_acyclic_graph).
